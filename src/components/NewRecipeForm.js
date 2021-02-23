@@ -6,19 +6,24 @@ const NewRecipeForm = props => {
   const handleInputChange = event => {
     const { name, value } = event.target
     setRecipe({ ...recipe, [name]: value })
+    console.log(recipe)
   };
+
+
 
   return (
       <form onSubmit={event => {
         event.preventDefault()
-        if (!recipe.name || !recipe.protein) return;
+        if (!recipe.cusine_region || !recipe.protein) return;
         props.addRecipe(recipe)
         setRecipe(props.initialFormState)
       }}>
         <label>Recipe</label>
-        <input type="text" name="name" value={recipe.name} onChange={handleInputChange} ></input>
+        <input type="text" name="cusine_region" value={recipe.cusine_region} onChange={handleInputChange} ></input>
         <label>Protein</label>
         <input type="text" name="protein" value={recipe.protein} onChange={handleInputChange} ></input>
+        <label>Multiplier</label>
+        <input type="number" name="multiplier" value={recipe.multiplier} onChange={handleInputChange} ></input>
       
         <button>Create recipe</button>
       </form>
