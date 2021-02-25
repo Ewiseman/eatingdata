@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import NewRecipeForm from './NewRecipeForm'
+import Recipe from './Recipe'
 
 const RecipesList = props => {
 
@@ -13,23 +14,39 @@ const RecipesList = props => {
   const [recipes, setRecipes] = useState([]);
 
   const initialFormState = {
-    cusine_region:'',
+    name:'',
     protein:'',
     multiplier:''
   };
 
-  const addRecipe = recipe => {
-    const data = JSON.stringify({
-      cusine_region: recipe.cusine_region,
-      protein: recipe.protein,
-      multiplier: recipe.multiplier
-    });
+  
+  
 
-    axios.post('http://localhost:3001/api/v1/recipes', data, { headers:{ "Content-Type" : "application/json" } })
-    .then(res=>( console.log(res)))
-    .catch( error => console.log(error));
-    
-    setRecipes([...recipes, recipe]);
+
+
+
+  // ADD RECIPE //
+  const addRecipe = recipe => {
+  
+    axios.post('http://localhost:3001/api/v1/recipes', {recipe})
+      .then(res=>{ 
+        setRecipes([...recipes, res.data])
+      })
+      .catch( error => console.log(error))
+      
+  }
+  
+
+
+
+  // REMOVE RECIPE //
+  const removeRecipe = (id) => {
+    console.log('delete', id)
+    axios.delete( 'http://localhost:3001/api/v1/recipes/' + id )
+        .then(response => {
+          setRecipes(recipes.filter(recipe => recipe.id !== id))
+        })
+        .catch(error => console.log(error))
   };
 
   return (
@@ -39,10 +56,8 @@ const RecipesList = props => {
       </div>
       <div className="recipes-list">
         {recipes.map((recipe, index) => (
-          <div key={index}>
-            {recipe.cusine_region} | {recipe.protein} | {recipe.vegan ? "Vegan" : "Not Vegan" } | {recipe.multiplier}
-          </div>
-        ))}
+            <Recipe key={recipe.id} recipe={recipe} removeRecipe={removeRecipe} />
+          ))}
       </div>
     </div>
   )
