@@ -1,8 +1,10 @@
 import "./App.css";
-import RecipesList from "./components/RecipesList";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import RecipesList from "./components/RecipesList";
+import CookbooksList from "./components/cookbook/CookbooksList";
 import Landing from "./components/Landing";
 import Recipe from "./components/Recipe";
+import Cookbook from "./components/cookbook/Cookbook";
 
 const App = () => {
   return (
@@ -15,6 +17,12 @@ const App = () => {
       </Route>
       <Route exact path="/recipes/:id">
         <Recipe />
+      </Route>
+      <Route exact path="/cookbooks">
+        <CookbooksList />
+      </Route>
+      <Route exact path="/cookbooks/:id">
+        <Cookbook />
       </Route>
     </Router>
   );

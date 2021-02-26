@@ -37,7 +37,7 @@ const RecipesList = (props) => {
     console.log("delete", id);
     axios
       .delete("http://localhost:3001/api/v1/recipes/" + id)
-      .then((response) => {
+      .then((res) => {
         setRecipes(recipes.filter((recipe) => recipe.id !== id));
       })
       .catch((error) => console.log(error));

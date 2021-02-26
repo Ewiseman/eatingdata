@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 
 const Recipe = (props) => {
   const [recipe, setRecipe] = useState({});
-  const { id } = useParams();
+  let { id } = useParams();
 
   useEffect(() => {
     axios({
