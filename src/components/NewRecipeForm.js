@@ -6,7 +6,6 @@ const NewRecipeForm = (props) => {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setRecipe({ ...recipe, [name]: value });
-    console.log(recipe);
   };
 
   return (
@@ -18,6 +17,13 @@ const NewRecipeForm = (props) => {
         setRecipe(props.initialFormState);
       }}
     >
+      <label>Cookbook</label>
+      <input
+        type="number"
+        name="cookbook_id"
+        value={recipe.cookbook_id}
+        onChange={handleInputChange}
+      ></input>
       <label>Recipe</label>
       <input
         type="text"

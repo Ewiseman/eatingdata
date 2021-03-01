@@ -8,7 +8,7 @@ const Recipe = ({ recipe, removeRecipe }) => {
       </Link>
       <p>{recipe.protein}</p>
       <p>{recipe.multiplier}</p>
-      <p>{recipe.id}</p>
+      <p>{recipe.cookbook_id}</p>
 
       <button onClick={() => removeRecipe(recipe.id)}>Remove</button>
     </div>

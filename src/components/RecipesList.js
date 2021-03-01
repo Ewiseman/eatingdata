@@ -16,6 +16,7 @@ const RecipesList = (props) => {
     name: "",
     protein: "",
     multiplier: "",
+    cookbook_id: "",
   };
 
   // ADD RECIPE //
