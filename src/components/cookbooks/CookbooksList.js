@@ -18,7 +18,6 @@ const CookbooksList = (props) => {
 
   // ADD RECIPE //
   const addCookbook = (cookbook) => {
-    console.log(cookbook);
     axios
       .post(
         "http://localhost:3001/api/v1/cookbooks",
