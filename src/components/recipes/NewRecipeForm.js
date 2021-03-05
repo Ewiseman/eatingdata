@@ -1,7 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const NewRecipeForm = (props) => {
   const [recipe, setRecipe] = useState(props.initialFormState);
+  const [cookbooks, setCookbooks] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/api/v1/cookbooks.json")
+      .then((res) => setCookbooks(res.data));
+  }, []);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -18,12 +26,14 @@ const NewRecipeForm = (props) => {
       }}
     >
       <label>Cookbook</label>
-      <input
-        type="number"
-        name="cookbook_id"
-        value={recipe.cookbook_id}
-        onChange={handleInputChange}
-      ></input>
+      <select name="cookbook_id" onChange={handleInputChange}>
+        {cookbooks.map((cookbook) => (
+          <option key={cookbook.id} value={cookbook.id}>
+            {cookbook.name}
+          </option>
+        ))}
+      </select>
+
       <label>Recipe</label>
       <input
         type="text"
@@ -45,6 +55,11 @@ const NewRecipeForm = (props) => {
         value={recipe.multiplier}
         onChange={handleInputChange}
       ></input>
+      <input
+        type="text"
+        placeholder="Placeholder"
+        className="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"
+      />
 
       <button>Create recipe</button>
     </form>
