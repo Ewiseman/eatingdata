@@ -56,6 +56,11 @@ const NewRecipeForm = (props) => {
         value={recipe.multiplier}
         onChange={handleInputChange}
       ></input>
+      <input
+        type="text"
+        placeholder="Placeholder"
+        className="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"
+      />
 
       <button>Create recipe</button>
     </form>
