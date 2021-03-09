@@ -21,9 +21,10 @@ const RecipesList = (props) => {
 
   // ADD RECIPE //
   const addRecipe = (recipe) => {
+    console.log(recipe);
     axios
       .post(
-        "http://localhost:3001/api/v1/recipes",
+        "http://localhost:3001/api/v1/recipes.json",
         { recipe },
         { headers: { "Content-Type": "application/json" } }
       )
@@ -35,9 +36,8 @@ const RecipesList = (props) => {
 
   // REMOVE RECIPE //
   const removeRecipe = (id) => {
-    console.log("delete", id);
     axios
-      .delete("http://localhost:3001/api/v1/recipes/" + id)
+      .delete("http://localhost:3001/api/v1/recipes/" + id + ".json")
       .then((res) => {
         setRecipes(recipes.filter((recipe) => recipe.id !== id));
       })
