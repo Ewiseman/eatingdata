@@ -7,8 +7,7 @@ const Recipe = ({ recipe, removeRecipe }) => {
         <h4 className="recipe-title">{recipe.name}</h4>
       </Link>
       <p>{recipe.protein}</p>
-      <p>{recipe.multiplier}</p>
-      <p>{recipe.cookbook_id}</p>
+      <p>{recipe.cookbook_name}</p>
 
       <button onClick={() => removeRecipe(recipe.id)}>Remove</button>
     </div>

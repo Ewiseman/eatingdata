@@ -6,7 +6,7 @@ const setCookbooks = ({ cookbook, removeCookbook }) => {
       <Link to={`/cookbooks/${cookbook.id}`}>
         <h4 className="cookbook-title">{cookbook.name}</h4>
       </Link>
-      <p>{cookbook.id}</p>
+      <p>{cookbook.recipes}</p>
 
       <button onClick={() => removeCookbook(cookbook.id)}>Remove</button>
     </div>
