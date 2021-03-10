@@ -50,16 +50,18 @@ const RecipesList = (props) => {
         <h1>Recipes</h1>
         <hr />
         <br />
-        <NewRecipeForm
-          addRecipe={addRecipe}
-          initialFormState={initialFormState}
-        />
+        <div className="container my-12 mx-auto px-4 md:px-12 flex justify-center ...">
+          <NewRecipeForm
+            addRecipe={addRecipe}
+            initialFormState={initialFormState}
+          />
+        </div>
       </div>
       <br />
       <hr />
       <br />
       <div className="container my-12 mx-auto px-4 md:px-12">
-        <div className="grid grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
           {recipes.map((recipe, _) => (
             <RecipeSummary
               key={recipe.id}

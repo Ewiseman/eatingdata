@@ -17,48 +17,61 @@ const NewRecipeForm = (props) => {
   };
 
   return (
-    <form
-      onSubmit={(event) => {
-        event.preventDefault();
-        if (!recipe.name || !recipe.protein) return;
-        props.addRecipe(recipe);
-        setRecipe(props.initialFormState);
-      }}
-    >
-      <label>Cookbook</label>
-      <select name="cookbook_id" onChange={handleInputChange}>
-        <option>Placeholder</option>
-        {cookbooks.map((cookbook) => (
-          <option key={cookbook.id} value={cookbook.id}>
-            {cookbook.name}
-          </option>
-        ))}
-      </select>
+    <div className="align-content: center h-48 flex flex-wrap content-center ...">
+      <form
+        action=""
+        className="form bg-white p-6 my-10 relative"
+        onSubmit={(event) => {
+          event.preventDefault();
+          if (!recipe.name || !recipe.protein) return;
+          props.addRecipe(recipe);
+          setRecipe(props.initialFormState);
+        }}
+      >
+        <select
+          name="cookbook_id"
+          onChange={handleInputChange}
+          className="border p-2 w-full mt-3 rounded-lg text-gray-400"
+        >
+          <option className="text-red-700 text-opacity-0...">Coookbook</option>
+          {cookbooks.map((cookbook) => (
+            <option key={cookbook.id} value={cookbook.id}>
+              {cookbook.name}
+            </option>
+          ))}
+        </select>
+        <br />
 
-      <label>Recipe</label>
-      <input
-        type="text"
-        name="name"
-        value={recipe.name}
-        onChange={handleInputChange}
-      ></input>
-      <label>Protein</label>
-      <input
-        type="text"
-        name="protein"
-        value={recipe.protein}
-        onChange={handleInputChange}
-      ></input>
-      <label>Multiplier</label>
-      <input
-        type="number"
-        name="multiplier"
-        value={recipe.multiplier}
-        onChange={handleInputChange}
-      ></input>
+        <input
+          type="text"
+          name="name"
+          placeholder="Recipe Name"
+          value={recipe.name}
+          onChange={handleInputChange}
+          className="border p-2 w-full mt-3 rounded-md"
+        ></input>
+        <input
+          type="text"
+          name="protein"
+          placeholder="Protein"
+          value={recipe.protein}
+          onChange={handleInputChange}
+          className="border p-2 w-full mt-3 rounded-md"
+        ></input>
+        <input
+          type="number"
+          name="multiplier"
+          placeholder="Recipe Mulitplier"
+          value={recipe.multiplier}
+          onChange={handleInputChange}
+          className="border p-2 w-full mt-3 rounded-md"
+        ></input>
 
-      <button>Create recipe</button>
-    </form>
+        <button className="w-full mt-6 bg-pink-600 hover:bg-pink-500 text-white font-semibold p-3 rounded-md">
+          Create recipe
+        </button>
+      </form>
+    </div>
   );
 };
 

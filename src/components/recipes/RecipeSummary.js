@@ -4,7 +4,7 @@ const Recipe = ({ recipe, removeRecipe }) => {
   return (
     <div className="my-1 px-1 w-full">
       <Link to={`/recipes/${recipe.id}`}>
-        <article className="overflow-hidden rounded-lg shadow-lg">
+        <article className="overflow-hidden rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl ...">
           <span href="#">
             <img
               alt="Placeholder"
