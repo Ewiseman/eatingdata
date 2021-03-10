@@ -58,14 +58,16 @@ const RecipesList = (props) => {
       <br />
       <hr />
       <br />
-      <div className="recipes-list">
-        {recipes.map((recipe, _) => (
-          <RecipeSummary
-            key={recipe.id}
-            recipe={recipe}
-            removeRecipe={removeRecipe}
-          />
-        ))}
+      <div className="container my-12 mx-auto px-4 md:px-12">
+        <div className="grid grid-cols-5 gap-4">
+          {recipes.map((recipe, _) => (
+            <RecipeSummary
+              key={recipe.id}
+              recipe={recipe}
+              removeRecipe={removeRecipe}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
