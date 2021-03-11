@@ -68,7 +68,7 @@ const NewRecipeForm = (props) => {
         ></input>
 
         <button className="w-full mt-6 bg-pink-600 hover:bg-pink-500 text-white font-semibold p-3 rounded-md">
-          Create recipe
+          Add recipe
         </button>
       </form>
     </div>
