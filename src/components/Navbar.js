@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { FaBars } from "react-icons/fa";
 import RecipesList from "./recipes/RecipesList";
 import Landing from "./Landing";
 import CookbooksList from "./cookbooks/CookbooksList";
@@ -25,7 +26,7 @@ export default function Navbar({ fixed }) {
                 type="button"
                 onClick={() => setNavbarOpen(!navbarOpen)}
               >
-                <i className="fas fa-bars"></i>
+                <FaBars />
               </button>
             </div>
             <div

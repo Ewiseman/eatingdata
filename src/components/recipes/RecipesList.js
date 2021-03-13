@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import NewRecipeForm from "./NewRecipeForm";
-import RecipeSummary from "./RecipeSummary";
+import RecipeCard from "./RecipeCard";
 
 const RecipesList = (props) => {
   useEffect(() => {
@@ -44,6 +44,12 @@ const RecipesList = (props) => {
       .catch((error) => console.log(error));
   };
 
+  // ADD TO MENU //
+  const onMenu = async (id) => {
+    const big = "http://localhost:3001/api/v1/recipes/" + id + ".json";
+    console.log(big);
+  };
+
   return (
     <section className="App">
       <div>
@@ -63,10 +69,11 @@ const RecipesList = (props) => {
       <div className="container my-12 mx-auto px-4 md:px-12">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
           {recipes.map((recipe, _) => (
-            <RecipeSummary
+            <RecipeCard
               key={recipe.id}
               recipe={recipe}
               removeRecipe={removeRecipe}
+              onMenu={onMenu}
             />
           ))}
         </div>
