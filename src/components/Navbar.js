@@ -7,12 +7,15 @@ import CookbooksList from "./cookbooks/CookbooksList";
 import Recipe from "./recipes/Recipe";
 import Cookbook from "./cookbooks/Cookbook";
 
-export default function Navbar({ fixed }) {
+const Navbar = ({ fixed }) => {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
     <Router>
       <>
-        <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-pink-500 mb-3">
+        <nav
+          className="fixed shadow-md z-50 w-full px-5 py-2 flex justify-between navbar-expand-lg
+        items-center bg-pink-500"
+        >
           <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
             <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
               <a
@@ -83,4 +86,6 @@ export default function Navbar({ fixed }) {
       </Switch>
     </Router>
   );
-}
+};
+
+export default Navbar;

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-// import React, { useState } from "react";
+import { IoMdBook } from "react-icons/io";
+// import { CgBowl } from "react-icons/cg";
 
 const truncateString = (str, num) => {
   if (str.length > num) {
@@ -16,7 +17,7 @@ const Recipe = ({ recipe, removeRecipe, onMenu }) => {
         className="overflow-hidden rounded-lg shadow-lg transform transition duration-500 hover:shadow-2xl ..."
         onDoubleClick={() => onMenu(recipe.id)}
       >
-        <span href="#">
+        <Link to={`/recipes/${recipe.id}`}>
           <img
             alt="Placeholder"
             className="block h-auto w-full"
@@ -24,7 +25,7 @@ const Recipe = ({ recipe, removeRecipe, onMenu }) => {
               Math.random() * 30
             )}/600/400`}
           ></img>
-        </span>
+        </Link>
 
         <header className="flex items-center justify-between leading-tight p-2 md:p-4">
           <Link to={`/recipes/${recipe.id}`}>
@@ -41,11 +42,7 @@ const Recipe = ({ recipe, removeRecipe, onMenu }) => {
 
         <footer className="flex items-center justify-between leading-none p-2 md:p-4">
           <span className="flex items-center" href="#">
-            <img
-              alt="Placeholder"
-              className="block rounded-full"
-              src="https://picsum.photos/32/32/?random"
-            ></img>
+            <IoMdBook />
             <p className="ml-2 text-sm">{recipe.cookbook_name}</p>
           </span>
           <label>
