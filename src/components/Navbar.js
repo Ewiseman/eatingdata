@@ -14,7 +14,7 @@ const Navbar = ({ fixed }) => {
       <>
         <nav
           className="fixed shadow-md z-50 w-full px-5 py-2 flex justify-between navbar-expand-lg
-        items-center bg-pink-500"
+        items-center shadow-lg bg-pink-500"
         >
           <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
             <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">

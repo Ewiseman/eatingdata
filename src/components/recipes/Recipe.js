@@ -15,40 +15,49 @@ const Recipe = () => {
     });
   }, [id]);
 
-  const stringBreak = recipe.directions
-    ? recipe.directions.replace(/\./g, "\n")
+  const recipeDirections = recipe.directions
+    ? recipe.directions
+        .split(".")
+        .map((str) => <p className="mb-5">{str + "."}</p>)
     : "";
-
-  const recipeDirections = stringBreak
-    .split("\n")
-    .map((str) => <p className="mb-5">{str}</p>);
 
   return (
     <section className="mb-9">
       <br />
       <br />
 
-      <header className="bg-header flex items-center justify-center h-screen pb-12">
-        <blockquote className="bg-black mx-4 p-4 text-center text-white md:p-8 rounded-lg shadow-lg">
+      <header className="bg-header"></header>
+      <div class="absolute inset-0 flex justify-center">
+        <blockquote className="recipe-title text-center text-white">
           <h1 className="text-5xl mb-3">{recipe.name}</h1>
           <p className="text-lg">{recipe.cookbook}</p>
         </blockquote>
-      </header>
+      </div>
       <div className="mx-auto py-12 px-6 max-w-6xl">
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
           <div className="...">
+            <h1 className="text-2xl mb-3">
+              <u>Ingredients</u>
+            </h1>
             {recipe.measurements.map((measurement) => (
-              <div key={measurement.id}>
+              <div key={measurement.id} className="mb-1">
                 {measurement.unit} {measurement.type_of_measurement} -{" "}
                 {measurement.ingredient_name}{" "}
-                {measurement.description
-                  ? "(" + measurement.description + ")"
-                  : ""}
+                <i>
+                  {measurement.description
+                    ? "(" + measurement.description + ")"
+                    : ""}
+                </i>
               </div>
             ))}
           </div>
 
-          <div className="col-span-2 ...">{recipeDirections}</div>
+          <div className="col-span-2 ...">
+            <h1 className="text-2xl mb-3">
+              <u>Directions</u>
+            </h1>
+            {recipeDirections}
+          </div>
         </div>
       </div>
       <br />

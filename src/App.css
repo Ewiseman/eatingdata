@@ -1,14 +1,12 @@
 .bg-header {
-  background: url(https://picsum.photos/2600/2600/?random) no-repeat center;
+  background: url(https://picsum.photos/2600/2600/?random) no-repeat center
+    center;
   background-attachment: fixed;
-  width: 100%;
   height: 50vh;
+  filter: brightness(50%);
+  position: relative;
 }
 
-.bg-quote {
-  background: url(https://picsum.photos/1600/1600/?random) center center
-    no-repeat;
-  background-attachment: fixed;
-  width: 100%;
-  height: 40vh;
+.recipe-title {
+  margin-top: 13%;
 }
