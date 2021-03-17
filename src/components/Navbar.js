@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import RecipesList from "./recipes/RecipesList";
 import Landing from "./Landing";
+import ScrollToTop from "./ScrollToTop";
 import CookbooksList from "./cookbooks/CookbooksList";
 import Recipe from "./recipes/Recipe";
 import Cookbook from "./cookbooks/Cookbook";
@@ -67,6 +68,7 @@ const Navbar = ({ fixed }) => {
           </div>
         </nav>
       </>
+      <ScrollToTop />
       <Switch>
         <Route exact path="/">
           <Landing />
