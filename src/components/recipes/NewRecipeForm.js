@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const NewRecipeForm = (props) => {
   const [recipe, setRecipe] = useState(props.initialFormState);
   const [cookbooks, setCookbooks] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     axios
@@ -25,7 +27,7 @@ const NewRecipeForm = (props) => {
           event.preventDefault();
           if (!recipe.name || !recipe.protein) return;
           props.addRecipe(recipe);
-          setRecipe(props.initialFormState);
+          history.push("/recipes");
         }}
       >
         <select

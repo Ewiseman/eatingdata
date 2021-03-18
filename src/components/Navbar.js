@@ -6,6 +6,7 @@ import Landing from "./Landing";
 // import ScrollToTop from "./ScrollToTop";
 import CookbooksList from "./cookbooks/CookbooksList";
 import Recipe from "./recipes/Recipe";
+import NewRecipePage from "./recipes/NewRecipePage";
 import Cookbook from "./cookbooks/Cookbook";
 
 const Navbar = ({ fixed }) => {
@@ -19,12 +20,12 @@ const Navbar = ({ fixed }) => {
         >
           <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
             <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-              <a
-                className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap text-gray"
-                href="#pablo"
-              >
-                Recipes
-              </a>
+              <Link to={`/`}>
+                <span className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap text-gray">
+                  <span className="ml-2">Autoimmune Recipes</span>
+                </span>
+              </Link>
+
               <button
                 className="text-gray cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
                 type="button"
@@ -78,6 +79,9 @@ const Navbar = ({ fixed }) => {
         </Route>
         <Route exact path="/recipes/:id">
           <Recipe />
+        </Route>
+        <Route exact path="/new_recipe">
+          <NewRecipePage />
         </Route>
         <Route exact path="/cookbooks">
           <CookbooksList />
