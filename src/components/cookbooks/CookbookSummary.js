@@ -8,7 +8,12 @@ const setCookbooks = ({ cookbook, removeCookbook }) => {
       </Link>
       <p>{cookbook.recipes}</p>
 
-      <button onClick={() => removeCookbook(cookbook.id)}>Remove</button>
+      <button
+        onClick={() => removeCookbook(cookbook.id)}
+        className="mt-6 bg-pink-600 hover:bg-pink-500 text-white font-semibold p-3 rounded-md"
+      >
+        Remove
+      </button>
     </div>
   );
 };

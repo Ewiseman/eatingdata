@@ -42,7 +42,7 @@ const CookbooksList = (props) => {
   };
 
   return (
-    <section className="App">
+    <section>
       <div>
         <h1>Cookbooks</h1>
         <hr />
