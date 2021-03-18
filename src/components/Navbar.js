@@ -9,6 +9,8 @@ import Recipe from "./recipes/Recipe";
 import NewRecipePage from "./recipes/NewRecipePage";
 import Cookbook from "./cookbooks/Cookbook";
 
+import IngredientsList from "./ingredients/IngredientsList";
+
 const Navbar = ({ fixed }) => {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
@@ -58,6 +60,14 @@ const Navbar = ({ fixed }) => {
                 </li>
 
                 <li className="nav-item">
+                  <Link to={`/ingredients`}>
+                    <span className="px-3 py-2 flex items-center text-xs font-bold leading-snug text-gray hover:opacity-75">
+                      <span className="ml-2">Ingredients</span>
+                    </span>
+                  </Link>
+                </li>
+
+                <li className="nav-item">
                   <Link to={`/cookbooks`}>
                     <span className="px-3 py-2 flex items-center text-xs font-bold leading-snug text-gray hover:opacity-75">
                       <span className="ml-2">Cookbooks</span>
@@ -82,6 +92,9 @@ const Navbar = ({ fixed }) => {
         </Route>
         <Route exact path="/new_recipe">
           <NewRecipePage />
+        </Route>
+        <Route exact path="/ingredients">
+          <IngredientsList />
         </Route>
         <Route exact path="/cookbooks">
           <CookbooksList />
