@@ -22,7 +22,7 @@ const Recipe = () => {
     : "";
 
   return (
-    <section className="mb-9">
+    <section className="mb-9 bg-primary">
       <br />
       <br />
 

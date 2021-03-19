@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+// import Select from "react-select";
 
 const NewRecipeForm = (props) => {
   const [recipe, setRecipe] = useState(props.initialFormState);
@@ -17,6 +18,16 @@ const NewRecipeForm = (props) => {
     const { name, value } = event.target;
     setRecipe({ ...recipe, [name]: value });
   };
+
+  const types_of_food = [
+    { label: "Main Dish", id: 1 },
+    { label: "Side Dish", id: 2 },
+    { label: "Salad", id: 3 },
+    { label: "Soup", id: 4 },
+    { label: "Sauce / Dressing", id: 5 },
+    { label: "Drink", id: 6 },
+    { label: "Desert", id: 7 },
+  ];
 
   return (
     <div className="align-content: center h-48 flex flex-wrap content-center ...">
@@ -35,7 +46,7 @@ const NewRecipeForm = (props) => {
           onChange={handleInputChange}
           className="border p-2 w-full mt-3 rounded-lg text-gray-400"
         >
-          <option className="text-red-700 text-opacity-0...">Coookbook</option>
+          <option className="text-red-700 text-opacity-0...">Cookbook</option>
           {cookbooks.map((cookbook) => (
             <option key={cookbook.id} value={cookbook.id}>
               {cookbook.name}
@@ -43,6 +54,21 @@ const NewRecipeForm = (props) => {
           ))}
         </select>
         <br />
+
+        <select
+          name="type_of_food"
+          onChange={handleInputChange}
+          className="border p-2 w-full mt-3 rounded-lg text-gray-400"
+        >
+          <option className="text-red-700 text-opacity-0...">
+            Type of Food
+          </option>
+          {types_of_food.map((type) => (
+            <option key={type.id} value={type.label}>
+              {type.label}
+            </option>
+          ))}
+        </select>
 
         <input
           type="text"

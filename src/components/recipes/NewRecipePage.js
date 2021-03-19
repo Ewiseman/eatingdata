@@ -14,7 +14,6 @@ const NewRecipePage = () => {
 
   // ADD RECIPE //
   const addRecipe = (recipe) => {
-    console.log(recipe);
     axios
       .post(
         "http://localhost:3001/api/v1/recipes.json",
