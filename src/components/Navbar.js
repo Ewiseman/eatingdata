@@ -47,7 +47,7 @@ const Navbar = ({ fixed }) => {
                 <li className="nav-item">
                   <Link to={`/`}>
                     <span className="px-3 py-2 flex items-center text-xs font-bold leading-snug text-gray hover:opacity-75">
-                      <span className="ml-2">Home</span>
+                      <span className="ml-2">Home 1</span>
                     </span>
                   </Link>
                 </li>
